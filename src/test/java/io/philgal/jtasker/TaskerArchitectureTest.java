@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 public class TaskerArchitectureTest {
 
-  private final JavaClasses importedClasses = new ClassFileImporter().importPackages("io.philgal");
+  private final JavaClasses importedClasses = new ClassFileImporter().importPackages("io.philgal.job");
 
   @Test
   void testTheAreNotStaticMethods() {
