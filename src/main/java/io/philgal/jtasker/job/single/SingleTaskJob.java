@@ -2,7 +2,7 @@ package io.philgal.jtasker.job.single;
 
 import io.philgal.jtasker.Job;
 import io.philgal.jtasker.Task;
-import io.philgal.jtasker.task.AbstractTask;
+import io.philgal.jtasker.task.SimpleTask;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDateTime;
@@ -22,14 +22,7 @@ public class SingleTaskJob implements Job {
 
   public SingleTaskJob(Runnable task){
     Objects.requireNonNull(task, "Task must be set");
-    this.task = new AbstractTask() {
-      @Override
-      public void execute() {
-        super.execute();
-        task.run();
-        super.complete();
-      }
-    };
+    this.task = new SimpleTask(task);
   }
 
   public SingleTaskJob(String name, Runnable task) {
