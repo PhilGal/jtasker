@@ -21,8 +21,7 @@ public class SingleTaskJob implements Job {
   }
 
   public SingleTaskJob(Runnable task){
-    Objects.requireNonNull(task, "Task must be set");
-    this.task = new SimpleTask(task);
+    this(new SimpleTask(task));
   }
 
   public SingleTaskJob(String name, Runnable task) {
